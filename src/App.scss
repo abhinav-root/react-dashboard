@@ -1,0 +1,449 @@
+// google fonts: poppins
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// colors
+$font-color: #2a3439;
+$body-bg: #ececec;
+$bg-white: #fffff0;
+$icon-gray: #adadad;
+$primary: #2a52be;
+$icon-hover-color: rgb(88, 88, 88);
+$green: #4cbb17;
+
+@mixin gray-icons($size: 1.4rem) {
+  svg {
+    color: $icon-gray;
+    height: $size;
+    width: $size;
+  }
+}
+
+body {
+  background-color: $body-bg;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+// hamburger menu
+.menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: $icon-gray;
+  margin-right: 1rem;
+  top: 1rem;
+  position: relative;
+  &:active,
+  &:hover {
+    color: $icon-hover-color;
+  }
+  cursor: pointer;
+}
+
+// menu box
+.menubox {
+  z-index: 999;
+  display: none;
+  position: absolute;
+  right: 0.4rem;
+  top: 3.7rem;
+  background-color: white;
+  //   border: 5px solid red;
+  padding: 2rem 1.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  div {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    span {
+      padding-left: 0.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.6px;
+    }
+    &:hover {
+      background-color: $primary;
+      color: white;
+      border-radius: 0.3rem;
+    }
+  }
+}
+
+// header
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $bg-white;
+  .logo {
+    color: $primary;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 0.5rem;
+    padding-right: 2rem;
+  }
+  .searchbar {
+    :hover {
+      color: $icon-hover-color;
+      cursor: pointer;
+    }
+    @include gray-icons();
+    flex-grow: 2;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    input[type="search"] {
+      width: 80%;
+      height: 80%;
+      border: none;
+      outline: none;
+      border-radius: 0.3rem;
+      &:focus-within {
+        background-color: rgb(247, 247, 247);
+      }
+      padding-left: 1rem;
+    }
+  }
+
+  .nav-links {
+    @include gray-icons();
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .settings,
+    .messages,
+    .bell {
+      &:hover {
+        cursor: pointer;
+        color: $icon-hover-color;
+      }
+    }
+    .settings {
+      &:hover {
+        transform: rotate(60deg);
+      }
+    }
+    .messages {
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+    .bell {
+      &:hover {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  //   profile
+  .profile {
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.8rem;
+      .full-name {
+        text-transform: capitalize;
+      }
+      .designation {
+        color: gray;
+      }
+    }
+    display: flex;
+    align-items: center;
+    .user-profile-image {
+      height: 2.8rem;
+      width: 2.8rem;
+      border-radius: 50%;
+      padding: 0.3rem 0.3rem;
+    }
+  }
+}
+
+// left side bar
+aside {
+  .wrapper {
+    border-right: 1px solid rgb(235, 235, 235);
+    position: fixed;
+    top: 3.6rem;
+    left: 0;
+    transition: width 0.3s;
+    &:hover {
+      width: 30vh;
+      span {
+        display: flex;
+      }
+      .subheading {
+        display: block;
+      }
+    }
+    // headings
+    .subheading {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: gray;
+      display: none;
+    }
+    padding: 1.5rem 0.6rem;
+    width: 10vw;
+    height: 100vh;
+    background-color: $bg-white;
+  }
+
+  .sidenav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    margin: 0.2rem 0;
+    svg {
+      min-height: 20;
+      min-width: 20;
+    }
+    span {
+      padding-left: 0.5rem;
+      display: none;
+    }
+    &:hover {
+      color: white;
+      background-color: $primary;
+      cursor: pointer;
+      border-radius: 0.3rem;
+    }
+    &:hover svg {
+      fill: white;
+    }
+  }
+
+  .sidenav-primary,
+  .sidenav-secondary {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// main content
+
+main {
+  display: grid;
+  align-items: center;
+  width: calc(100% - 30vh);
+  margin: 0 auto;
+  .income {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 1rem 2rem;
+    border-radius: 0.4rem;
+    width: 30rem;
+    padding: 3rem 2rem;
+    background-color: $bg-white;
+    .title {
+      font-weight: 500;
+      text-transform: capitalize;
+      color: rgb(72, 72, 72);
+    }
+    .data {
+      display: flex;
+      align-items: center;
+      .value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #3c3c3c;
+        padding-right: 1rem;
+      }
+      .increment {
+        font-size: 0.9rem;
+        color: white;
+        background-color: $green;
+        padding: 0.1rem 0.3rem;
+        border-radius: 40rem;
+      }
+    }
+    .container {
+      border-radius: 20rem;
+      background-color: rgb(221, 221, 221);
+      .bar {
+        border: 0.2rem solid rgb(132, 50, 209);
+        border-radius: 20rem;
+        width: 75%;
+      }
+    }
+    .caption {
+      margin-top: 1rem;
+      text-transform: capitalize;
+      font-size: 0.8rem;
+      color: gray;
+    }
+  }
+  .new-users {
+    .barchart {
+      margin-top: 2rem;
+      .bar {
+        fill: $primary;
+      }
+    }
+  }
+
+  .balance {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 1rem 2rem;
+    border-radius: 0.4rem;
+    width: 30rem;
+    padding: 3rem 2rem;
+    background-color: $bg-white;
+    .title {
+      text-transform: capitalize;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      .picker {
+        border: 1px solid rgb(167, 167, 167);
+        border-radius: 0.4rem;
+        padding: 0.7rem;
+        display: flex;
+        align-items: center;
+        .month {
+          color: #696969;
+          font-weight: 500;
+          padding-right: 0.6rem;
+          text-transform: capitalize;
+        }
+      }
+    }
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      .box {
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+        border: 1px solid rgb(189, 189, 189);
+        border-radius: 0.4rem;
+      }
+      .title {
+        font-size: 1rem;
+        font-weight: 400;
+        color: gray;
+      }
+      .data {
+        display: flex;
+        align-items: center;
+        .value {
+          font-size: 1.2rem;
+          font-weight: 700;
+          padding-right: 0.7rem;
+        }
+        .increment {
+          font-size: 0.9rem;
+          color: white;
+          background-color: $green;
+          padding: 0.1rem 0.3rem;
+          border-radius: 40rem;
+        }
+      }
+    }
+  }
+}
+
+article {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: calc(100% - 30vh);
+  table {
+    padding: 1rem;
+    width: 90%;
+    background-color: $bg-white;
+    tr:nth-child(odd) {
+      background-color: #d2d2d2;
+    }
+    margin: 0 auto;
+    td,
+    th {
+      text-align: center;
+      padding: 0 1rem;
+    }
+    td,
+    th {
+      padding: 0.4rem 0.8rem;
+      margin: 0 1rem;
+    }
+    .tblheading {
+      color: rgb(119, 119, 119);
+      font-weight: 600;
+    }
+    .tbltitle {
+      padding: 1rem 2rem;
+    }
+    .tblheader {
+      display: flex;
+      align-items: center;
+      .export {
+        padding: 0.5rem 1rem;
+        background-color: $primary;
+        color: white;
+        cursor: pointer;
+        border-radius: 0.4rem;
+        &:hover {
+          background-color: blue;
+        }
+      }
+    }
+    .status {
+      background-color: $green;
+      color: white;
+      border-radius: 40rem;
+    }
+  }
+}
+
+// meadia queries
+@media only screen and (min-width: 500px) {
+  main {
+    grid-template-areas: "column";
+  }
+  header {
+    .nav-links {
+      display: none;
+    }
+    .menu-icon {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  main {
+    grid-template-areas:
+      "income balance"
+      "users users";
+  }
+  header {
+    .nav-links {
+      display: flex;
+    }
+    .menu-icon {
+      display: none;
+    }
+    .menubox {
+      display: none;
+      div {
+        cursor: pointer;
+      }
+    }
+  }
+  aside {
+    .wrapper {
+      width: 10%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  aside {
+    .wrapper {
+      width: 5%;
+    }
+  }
+}
